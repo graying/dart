@@ -12,8 +12,65 @@ class HomePageOrder extends StatefulWidget {
 }
 
 class _State extends State<HomePageOrder> {
-  void clicked() {
-    print('button clicked');
+  ///AudioCache _audioStop;
+
+  @override
+  void initState() {
+    super.initState();
+
+    ///_audioCache = AudioCache(prefix: "audio/", fixedPlayer: AudioPlayer()..setReleaseMode(ReleaseMode.STOP));
+  }
+
+  void clicked00() {
+    print('button00 clicked');
+    setState(() {});
+  }
+
+  void clicked01() {
+    print('button01 clicked');
+    var tmp = dat[0][1];
+    if (tmp == '9') {
+      return;
+
+      ///_audioStop
+    }
+    dat[0][1] = '9';
+    dat[1][1] = tmp;
+    setState(() {});
+  }
+
+  void clicked02() {
+    print('button02 clicked');
+    setState(() {});
+  }
+
+  void clicked10() {
+    print('button10 clicked');
+    setState(() {});
+  }
+
+  void clicked11() {
+    print('button11 clicked');
+    setState(() {});
+  }
+
+  void clicked12() {
+    print('button12 clicked');
+    setState(() {});
+  }
+
+  void clicked20() {
+    print('button20 clicked');
+    setState(() {});
+  }
+
+  void clicked21() {
+    print('button21 clicked');
+    setState(() {});
+  }
+
+  void clicked22() {
+    print('button22 clicked');
     setState(() {});
   }
 
@@ -24,15 +81,15 @@ class _State extends State<HomePageOrder> {
         Row(
           children: [
             MyButton(
-              clicked,
+              clicked00,
               MyText(dat[0][0]),
             ),
             MyButton(
-              clicked,
+              clicked01,
               MyText(dat[0][1]),
             ),
             MyButton(
-              clicked,
+              clicked02,
               MyText(dat[0][2]),
             ),
           ],
@@ -40,15 +97,15 @@ class _State extends State<HomePageOrder> {
         Row(
           children: [
             MyButton(
-              clicked,
+              clicked10,
               MyText(dat[1][0]),
             ),
             MyButton(
-              clicked,
+              clicked11,
               MyText(dat[1][1]),
             ),
             MyButton(
-              clicked,
+              clicked12,
               MyText(dat[1][2]),
             ),
           ],
@@ -56,15 +113,15 @@ class _State extends State<HomePageOrder> {
         Row(
           children: [
             MyButton(
-              clicked,
+              clicked20,
               MyText(dat[2][0]),
             ),
             MyButton(
-              clicked,
+              clicked21,
               MyText(dat[2][1]),
             ),
             MyButton(
-              clicked,
+              clicked22,
               MyText(dat[2][2]),
             ),
           ],
