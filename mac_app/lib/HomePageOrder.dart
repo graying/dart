@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 var dat = [
   ['1', '2', '3'],
-  ['4', '9', '6'],
-  ['7', '8', '5']
+  ['4', '5', '6'],
+  ['7', '8', '9']
 ];
 
 class HomePageOrder extends StatefulWidget {
@@ -17,8 +18,29 @@ class _State extends State<HomePageOrder> {
   @override
   void initState() {
     super.initState();
+    newPuzzle();
 
     ///_audioCache = AudioCache(prefix: "audio/", fixedPlayer: AudioPlayer()..setReleaseMode(ReleaseMode.STOP));
+  }
+
+  void newPuzzle() {
+    dat = [
+      ['1', '2', '3'],
+      ['4', '5', '6'],
+      ['7', '8', '9']
+    ];
+    var rng = new Random();
+    for (int i = 0; i < 300; i++) {
+      if (rng.nextInt(9) == 0) clicked00();
+      if (rng.nextInt(9) == 1) clicked01();
+      if (rng.nextInt(9) == 2) clicked02();
+      if (rng.nextInt(9) == 3) clicked10();
+      if (rng.nextInt(9) == 4) clicked11();
+      if (rng.nextInt(9) == 5) clicked12();
+      if (rng.nextInt(9) == 6) clicked20();
+      if (rng.nextInt(9) == 7) clicked21();
+      if (rng.nextInt(9) == 8) clicked22();
+    }
   }
 
   void swapDat(x, y, x1, y1) {
@@ -180,6 +202,10 @@ class _State extends State<HomePageOrder> {
               ),
             ],
           ),
+          MyButton(
+            newPuzzle,
+            MyText('New'),
+          ),
         ],
       ),
     );
@@ -202,6 +228,7 @@ class MyText extends Text {
   }
 }
 
+// ignore: must_be_immutable
 class MyButton extends RaisedButton {
   Function func;
   var name;
@@ -215,8 +242,8 @@ class MyButton extends RaisedButton {
   Widget build(BuildContext context) {
     if (this.name.toString() == 'MyText("9")') {
       return Container(
-        width: 100,
-        height: 100,
+        width: 125,
+        height: 125,
         child: RaisedButton(
           onPressed: func,
           color: Colors.black,
@@ -225,8 +252,8 @@ class MyButton extends RaisedButton {
       );
     }
     return Container(
-      width: 100,
-      height: 100,
+      width: 125,
+      height: 125,
       padding: EdgeInsets.all(5),
       child: RaisedButton(
         onPressed: func,
