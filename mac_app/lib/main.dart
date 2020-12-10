@@ -5,10 +5,13 @@ import 'package:mac_app/macapp2.dart';
 import 'homepage3.dart';
 import 'homepagecontainer.dart';
 import 'HomePageOrder.dart';
+import 'homelistview.dart';
+import 'homeimage.dart';
 
 void main() {
   var myApp = new MaterialApp(
-    home: HomePageOrder(),
+    //home: HomePageOrder(),
+    home: HomeImageNetwork(),
   );
   runApp(myApp);
 }
