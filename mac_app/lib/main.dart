@@ -10,8 +10,8 @@ import 'homeimage.dart';
 
 void main() {
   var myApp = new MaterialApp(
-    //home: HomePageOrder(),
-    home: HomeImageNetwork(),
+    home: HomePageOrder(),
+    // home: HomeImageNetwork(),
   );
   runApp(myApp);
 }

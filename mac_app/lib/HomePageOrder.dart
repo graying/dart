@@ -245,20 +245,20 @@ class MyButton extends RaisedButton {
         width: 125,
         height: 125,
         child: RaisedButton(
-          onPressed: func,
+          onPressed: null,
           color: Colors.black,
+          child: null,
+        ),
+      );
+    } else
+      return Container(
+        width: 125,
+        height: 125,
+        padding: EdgeInsets.all(5),
+        child: RaisedButton(
+          onPressed: func,
           child: name,
         ),
       );
-    }
-    return Container(
-      width: 125,
-      height: 125,
-      padding: EdgeInsets.all(5),
-      child: RaisedButton(
-        onPressed: func,
-        child: name,
-      ),
-    );
   }
 }
