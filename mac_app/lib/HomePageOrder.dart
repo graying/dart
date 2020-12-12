@@ -14,6 +14,7 @@ class HomePageOrder extends StatefulWidget {
 
 class _State extends State<HomePageOrder> {
   ///AudioCache _audioStop;
+  int stepCount = 0;
 
   @override
   void initState() {
@@ -41,6 +42,16 @@ class _State extends State<HomePageOrder> {
       if (rng.nextInt(9) == 7) clicked21();
       if (rng.nextInt(9) == 8) clicked22();
     }
+    stepCount = 0;
+  }
+
+  void autoComplete() {
+    dat = [
+      ['1', '2', '3'],
+      ['4', '5', '6'],
+      ['7', '8', '9']
+    ];
+    setState(() {});
   }
 
   void swapDat(x, y, x1, y1) {
@@ -48,6 +59,7 @@ class _State extends State<HomePageOrder> {
     dat[x][y] = dat[x1][y1];
     dat[x1][y1] = tmp;
 
+    stepCount++;
     setState(() {});
   }
 
@@ -205,6 +217,28 @@ class _State extends State<HomePageOrder> {
           MyButton(
             newPuzzle,
             MyText('New'),
+          ),
+          Card(
+            child: Container(
+              child: MyText('$stepCount'),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap: (idx) {
+          if (idx == 0) newPuzzle();
+          if (idx == 1) autoComplete();
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            label: 'New',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add, color: Colors.black),
+            label: 'Auto',
           ),
         ],
       ),
